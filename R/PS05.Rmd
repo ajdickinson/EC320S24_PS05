@@ -1,0 +1,221 @@
+---
+title: "PS05"
+subtitle: "Total points: 25"
+author: "WRITE YOUR NAME HERE"
+output: html_document
+---
+
+## __README__
+
+Complete the following questions below and show all work. You must submit a compiled html file with all code and answers in this document and submit on Canvas. Make sure to write your name above where it says "WRITE YOUR NAME HERE". Include it within the quotation marks.
+
+Before writing answering the following questions, make sure to compile the report to make sure that everything is working properly. As you answer each question, compile after each question to make sure you are not making any errors. If you are experiencing an error, read the error carefully. One tactic is to selectively delete questions/sections until the report compiles. This will help you narrow down where the coding error is occurring.
+
+#### __Data__
+
+The data used in this problem set contains information on a random sample of 36,051 births in the United States. Birth weight is commonly used as an indicator of infant health since it is very easily measured and widely reported. Also in the data are indicators for mother's and father's race, marital status, whether the mother smoked or drank alcohol during pregnancy and total gestation time of each pregnancy in weeks. See the codebook at the bottom for a description of each variable.
+
+#### __Integrity__
+
+If you are suspected of cheating, you will receive a zero—for the assignment and possibly for the course. Cheating includes copying work from your classmates, from the internet, and from previous problem sets. You are encouraged to work with your peers, but everyone must submit their own solutions.
+
+---
+
+## Questions
+
+#### __Q01:__ Load the required packages _(1 point)_
+
+Load the required packages `tidyverse` and `broom`.
+
+```{r, message=FALSE, warning=FALSE}
+# Load packages here
+```
+
+---
+
+#### __Q02:__ Load data _(1 point)_
+
+Load the data by using the codeblock below. Do not change it. Once loaded, print the first 10 observations in a new codeblock.
+
+```{r warning=FALSE, message=FALSE, include=FALSE}
+# Load the data with the following code below. Do not change. 
+
+# Note, this codeblock will not be printed in the output. However, if the printing the first 10 observations works, you are good to move forward.
+
+# Install the 'here' package if it is not already installed
+if (!requireNamespace("here", quietly = TRUE)) {
+  install.packages("here")
+}
+
+# Load the 'here' package
+library(here)
+
+# Define the path to the data file using the 'here' package
+data_path = here("data", "natality.csv")
+
+natal_df = readr::read_csv(data_path)
+```
+
+```{r}
+# Print the first 10 observations
+
+```
+
+---
+
+#### __Q03:__ Drop the unnecessary variable _(1 point)_
+
+Sometimes data isn't clean. Drop the unnecessary variable to clean up the data. There is only one, and it should be obvious which one I am referring to.
+
+```{r}
+# Drop the one unnecessary variable
+
+```
+
+---
+
+#### __Q04:__ Read the _Codebook_ _(1 point)_
+
+The codebook is attached at the bottom. Read the information about each column. Which describe birth weight, gestation length, mothers ages, and smoking behavior?
+
+
+---
+
+#### __Q05:__ Plot the data _(2 points)_
+
+Create a scatter plot comparing birth weight to gestation. Fit a linear regression line using the `geom_smooth` function.
+
+```{r fig.height=5, message=FALSE, warning=FALSE, fig.align="center"}
+# Write your code here
+
+
+```
+
+#### __Q06:__ Regress birth weight on gestation length _(2 points)_
+
+Regress birth on gestation. Report the $R^2$.
+
+```{r}
+
+```
+
+
+
+---
+
+#### __Q07:__ Regress birth weight on gestation length and additional controls _(2 points)_
+
+Regress birth weight on gestation length, mother's age, and whether the mother smoked during pregnancy. Report the $R^2$.
+
+```{r}
+# Write your code here
+
+```
+
+
+---
+
+#### __Q08:__ Interpret the coefficients _(2 points)_
+
+Interpret the coefficients of gestation length, mother's age, and whether the mother smoked during pregnancy. Are they statistically significant at the 5 percent level?
+
+
+---
+
+#### __Q09:__ Conduct an F-test _(2 points)_
+
+Conduct an F-test to determine if the model with `mother_age`, and `cigs` provides a better fit than a model with only an intercept. Conduct a hypothesis test at the 99% confidence level.
+
+```{r}
+# Gather RSS of the restricted and unrestricted model
+
+
+# Degrees of Freedom
+# n = (Number of observations)
+# k = (Number of parameters in the unrestricted model (including the intercept))
+# dof = n - k
+
+# Number of restrictions
+# q = (Number of restrictions)
+
+# Calculate the F-statistic
+
+# Calculate the F critical value at 99% confidence level
+
+# Print the F-statistic and F-critical value
+
+```
+
+
+
+---
+
+#### __Q10:__ Regress birth weight on father's race _(2 points)_
+
+Regress `birth_wt` on `frace_black`, `frace_white`, `frace_hawaiian`, `frace_asian`, and `frace_native_american`. Report the results.
+
+```{r}
+# Write your code here
+
+```
+
+---
+
+#### __Q11:__ Interpretation _(3 points)_
+
+What seems to be going on in the previous regression? How might the problem be resolved? Run the regression again using white fathers as the reference group and interpret the coefficients.
+
+```{r}
+# Write your code here
+
+```
+
+---
+
+#### __Q12:__ Plot logged birth weight and gestation length _(2 points)_
+
+Create a scatter plot comparing logged birth weight to gestation length with a regression line using `geom_smooth()`. Fit a linear regression line. Compare with the previous plot. Does it seem to explain more or less variation? Describe how we can find out.
+
+```{r fig.height=5, message=FALSE, warning=FALSE, fig.align="center"}
+# Write your ggplot code here
+
+```
+
+
+---
+
+#### __Q13:__ Quadratic term _(2 points)_
+
+Add a quadratic term for `gestation` to the simple regression model in _Q06_ and report the results.
+
+```{r}
+# Write your code here
+```
+
+---
+
+#### __Q14:__ Interpret the coefficients _(2 points)_
+
+Interpret the relationship of the effect of gestation length on birth weight for a fetus at 30 weeks of gestation.
+
+
+## Codebook
+
+| Variable              | Description                                                                                     |
+|-----------------------|-------------------------------------------------------------------------------------------------|
+| birth_wt              | Weight of the baby at birth (in grams)                                                          |
+| cigs                  | Whether the mother smoked cigarettes during pregnancy (logical: TRUE or FALSE)                  |
+| alcohol               | Whether the mother consumed alcohol during pregnancy (logical: TRUE or FALSE)                   |
+| marital_status        | Marital status of the mother (1 if married, 0 if not married)                                   |
+| mother_age            | Age of the mother                                                                               |
+| gestation             | Length of the pregnancy (in weeks)                                                              |
+| mrace_asian           | Whether the mother is of Asian race (1 if yes, 0 if no)                                         |
+| mrace_black           | Whether the mother is of Black race (1 if yes, 0 if no)                                         |
+| mrace_hawaiian        | Whether the mother is of Hawaiian race (1 if yes, 0 if no)                                      |
+| mrace_native_american | Whether the mother is of Native American race (1 if yes, 0 if no)                               |
+| mrace_white           | Whether the mother is of White race (1 if yes, 0 if no)                                         |
+| frace_asian           | Whether the father is of Asian race (1 if yes, 0 if no)                                         |
+| frace_black           | Whether the father is of Black race (1 if yes, 0 if no)                                         |
+| frace_hawaiian        | Whether the father is of Hawaiian race (1 if yes, 0 if no)                                      |
+| frace_native_american | Whether the father is of Native American race (1 if yes, 0 if no)                               |
+| frace_white           | Whether the father is of White race (1 if yes, 0 if no)                                         |
