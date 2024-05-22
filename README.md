@@ -13,19 +13,18 @@ Navigate to the `Files` tab in the bottom right panel of RStudio. You should see
 .
 ├── EC320S24_PS05.Rproj
 ├── R
-│   └── PS05.Rmd
-└── README.md
+│   ├── PS05.Rmd
+├── README.md
+└── data
+    └── natality.csv
 
-2 directories, 3 files
 ```
 
 The assignment can be found in the `PS04.Rmd` file. 
 
 ### Data
 
-The data from this problem set are a sample of district level data from the state of Massachusetts in 1998. It can be loaded into memory through installing the `AER` package from CRAN (i.e., `install.packages("AER")`). By default, the Rmd will do this for you. After downloading, simply knit the document (cmd/ctrl + shift + k) and make sure everything looks okay.
-
-The Massachusetts data are district-wide averages for public elementary school districts in 1998. The data analyzed here are the overall total score, which is the sum of the scores on the English, Math, and Science portions of the test. Data on the student-teacher ratio, the percent of students receiving a subsidized lunch and on the percent of students still learning english are averages for each elementary school district for the 1997–1998 school year and were obtained from the Massachusetts department of education. Data on average district income are from the 1990 US Census.
+The data used in this problem set contains information on a random sample of 36,051 births in the United States. Birth weight is commonly used as an indicator of infant health since it is very easily measured and widely reported. Also in the data are indicators for mother's and father's race, marital status, whether the mother smoked or drank alcohol during pregnancy and total gestation time of each pregnancy in weeks. See the codebook at the bottom for a description of each variable.
 
 ### Integrity
 
