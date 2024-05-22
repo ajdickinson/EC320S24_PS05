@@ -20,7 +20,7 @@ Navigate to the `Files` tab in the bottom right panel of RStudio. You should see
 
 ```
 
-The assignment can be found in the `PS04.Rmd` file. 
+The assignment can be found in the `PS05.Rmd` file. 
 
 ### Data
 
