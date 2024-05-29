@@ -52,8 +52,13 @@ library(here)
 
 # Define the path to the data file using the 'here' package
 data_path = here("data", "natality.csv")
-
+# Read in data
 natal_df = readr::read_csv(data_path)
+```
+
+```{r}
+# Print the first 10 observations
+
 ```
 
 ```{r}
@@ -87,7 +92,6 @@ Create a scatter plot comparing birth weight to gestation. Fit a linear regressi
 
 ```{r fig.height=5, message=FALSE, warning=FALSE, fig.align="center"}
 # Write your code here
-
 
 ```
 
